@@ -1,0 +1,33 @@
+{
+  "tasks": {
+    "start": "deno run ./source/main/mod.ts",
+    "dev": "deno run --watch ./source/main/mod.ts",
+    "test:unit": "deno test --parallel",
+    "cache:tests": "deno test --parallel --no-run",
+    "cache:main": "deno cache ./source/main/mod.ts",
+    "cache": "deno task cache:main && deno task cache:tests",
+    "production": "deno task test:unit && deno task start"
+  },
+  "compilerOptions": {
+    "noUncheckedIndexedAccess": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "lint": {
+    "rules": {
+      "exclude": [
+        "require-await",
+        "require-yield"
+      ]
+    }
+  },
+  "fmt": {
+    "semiColons": false
+  },
+  "imports": {
+    "@/": "./source/",
+    "std/": "https://deno.land/std@0.186.0/",
+    "testing": "https://deno.land/std@0.186.0/testing/asserts.ts",
+    "ky": "https://esm.sh/ky@0.33.3",
+    "zod": "https://deno.land/x/zod@v3.21.4/mod.ts"
+  }
+}
