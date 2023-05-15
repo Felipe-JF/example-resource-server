@@ -1,5 +1,7 @@
 # example-resource-server
 
-### dependencies
+### Scripts
 
-https://github.com/sindresorhus/ky
+```
+deno task
+```
